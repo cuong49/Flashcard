@@ -1,0 +1,73 @@
+.header-cuong {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: flex-start;
+    padding: 10px 20px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.logo-cuong {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.inOut{
+    display: flex;
+    flex-direction: column;
+}
+.auth-cuong .button-cuong {
+    position: relative;
+    width: 8em;
+    height: fit-content;
+    background-color: #f8f8f8;
+    color: #0a0a0a;
+    padding: 0.5em 0.5em;
+    border: 1px dashed rgba(255, 255, 255, 0.336);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+    transition: 0.5s;
+    font-size:0.7em;
+    font-weight: bold;
+
+}
+.auth-cuong{
+    position: relative;
+    z-index: 2;
+    position: absolute;
+    top:1.8em;
+}
+
+.auth-cuong .button-cuong:hover {
+    background-color: #000000;
+    border:2px solid white;
+    border-radius: 10%;
+    color:white;
+}
+
+.user-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    position: relative;
+}
+
+/* Avatar kiểu tròn với hiệu ứng viền */
+.avatar-cuong {
+    width: 2.5em;
+    height: 2.5em;
+    margin-top:0em;
+    margin-right: 2em;
+    border-radius: 50%;
+    border: 2px solid #555;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    align-self: center;
+}
+
+.avatar-cuong:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}

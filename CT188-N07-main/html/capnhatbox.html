@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Logo góc trên web -->
+      <link rel="shortcut icon" href="../image/for-rent.png">
+    <title>Cập nhật thông tin đăng trọ</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        background-color: #f4f4f4;
+        background-image: url('../image/city.jpg');
+    }
+
+    .container {
+        width: 100%;
+        max-width: 900px;
+        /* Mở rộng kích thước container */
+        padding: 20px;
+        margin-top: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .form-row {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group label {
+        margin-bottom: 5px;
+        color: #555;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: none;
+        font-size: 16px;
+        transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+        border-color: #007bff;
+    }
+
+    .full-width {
+        flex: 1;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        background-color: #007bff;
+        border: none;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+        margin-top: 15px;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <h2>Cập nhật thông tin</h2>
+        <form id="roomForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="id">ID:</label>
+                    <input type="text" id="id" name="id" required disabled>
+                </div>
+                <div class="form-group">
+                    <label for="tieuDe">Tiêu Đề:</label>
+                    <input type="text" id="tieuDe" name="tieuDe" required>
+                </div>
+                <div class="form-group">
+                    <label for="gia">Giá:</label>
+                    <input type="text" id="gia" name="gia" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="dienTich">Diện Tích:</label>
+                    <input type="text" id="dienTich" name="dienTich" required>
+                </div>
+                <div class="form-group">
+                    <label for="vitri">Vị Trí:</label>
+                    <input type="text" id="vitri" name="vitri" required>
+                </div>
+                <div class="form-group">
+                    <label for="hinhAnh">Hình Ảnh:</label>
+                    <input type="text" id="hinhAnh" name="hinhAnh">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="giaDien">Giá Điện:</label>
+                    <input type="text" id="giaDien" name="giaDien">
+                </div>
+                <div class="form-group">
+                    <label for="giaNuoc">Giá Nước:</label>
+                    <input type="text" id="giaNuoc" name="giaNuoc">
+                </div>
+                <div class="form-group">
+                    <label for="cachTrungTam">Cách Trung Tâm:</label>
+                    <input type="text" id="cachTrungTam" name="cachTrungTam">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="coGac">Có Gác:</label>
+                    <input type="text" id="coGac" name="coGac">
+                </div>
+                <div class="form-group">
+                    <label for="trangThai">Trạng Thái:</label>
+                    <input type="text" id="trangThai" name="trangThai">
+                </div>
+                <div class="form-group">
+                    <label for="chuTro">Chủ Trọ:</label>
+                    <input type="text" id="chuTro" name="chuTro">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="lienHe">Liên Hệ:</label>
+                    <input type="text" id="lienHe" name="lienHe">
+                </div>
+                <div class="form-group">
+                    <label for="giaDacCoc">Giá Đặt Cọc:</label>
+                    <input type="text" id="giaDacCoc" name="giaDacCoc">
+                </div>
+                <div class="form-group">
+                    <label for="giaDacCoc">Thông báo:</label>
+                    <input type="text" id="giaDacCoc" name="giaDacCoc">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label for="moTa">Mô Tả:</label>
+                    <textarea id="moTa" name="moTa" rows="4"></textarea>
+                </div>
+            </div>
+
+            <button type="submit">Cập Nhật Thông Tin</button>
+        </form>
+    </div>
+    <script>
+        const idCapNhat = localStorage.getItem("id-cap-nhat-phong-tro");
+        document.getElementById("roomForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const id = document.getElementById("id").value;
+            const tieuDe = document.getElementById("tieuDe").value;
+            const gia = document.getElementById("gia").value;
+            const dienTich = document.getElementById("dienTich").value;
+            const vitri = document.getElementById("vitri").value;
+            const hinhAnh = document.getElementById("hinhAnh").value;
+            const giaDien = document.getElementById("giaDien").value;
+            const giaNuoc = document.getElementById("giaNuoc").value;
+            const cachTrungTam = document.getElementById("cachTrungTam").value;
+            const coGac = document.getElementById("coGac").value;
+            const trangThai = document.getElementById("trangThai").value;
+            const chuTro = document.getElementById("chuTro").value;
+            const lienHe = document.getElementById("lienHe").value;
+            const giaDacCoc = document.getElementById("giaDacCoc").value;
+            const moTa = document.getElementById("moTa").value;
+
+            const formData = {
+                "id": id,
+                "tieuDe": tieuDe,
+                "gia": gia,
+                "dienTich": dienTich,
+                "vitri": vitri,
+                "hinhAnh": hinhAnh,
+                "giaDien": giaDien,
+                "giaNuoc": giaNuoc,
+                "cachTrungTam": cachTrungTam,
+                "coGac": coGac,
+                "trangThai": trangThai,
+                "chuTro": chuTro,
+                "lienHe": lienHe,
+                "giaDacCoc": giaDacCoc,
+                "moTa": moTa
+            };
+
+
+            let arr = JSON.parse(localStorage.getItem("DSPhongTro")) || [];
+            arr = arr.map(element => {
+                if (element.id === idCapNhat) {
+                    return formData; // Cập nhật phần tử nếu id trùng
+                }
+                return element;
+            });
+
+            localStorage.setItem("DSPhongTro", JSON.stringify(arr));
+
+            window.location.href = "customer.html";
+
+        });
+        function displayInforID() {
+            let arr = JSON.parse(localStorage.getItem("DSPhongTro")) || [];
+            let infID;
+            arr.forEach(element => {
+                if (element.id === idCapNhat) {
+                    infID = element;
+                }
+                id = document.getElementById("id").value = infID.id;
+                tieuDe = document.getElementById("tieuDe").value = infID.tieuDe;
+                gia = document.getElementById("gia").value = infID.gia;
+                dienTich = document.getElementById("dienTich").value = infID.dienTich;
+                vitri = document.getElementById("vitri").value = infID.vitri;
+                hinhAnh = document.getElementById("hinhAnh").value = infID.hinhAnh;
+                giaDien = document.getElementById("giaDien").value = infID.giaDien;
+                giaNuoc = document.getElementById("giaNuoc").value = infID.giaNuoc;
+                cachTrungTam = document.getElementById("cachTrungTam").value = infID.cachTrungTam;
+                coGac = document.getElementById("coGac").value = infID.coGac;
+                trangThai = document.getElementById("trangThai").value = infID.trangThai;
+                chuTro = document.getElementById("chuTro").value = infID.chuTro;
+                lienHe = document.getElementById("lienHe").value = infID.lienHe;
+                giaDacCoc = document.getElementById("giaDacCoc").value = infID.giaDacCoc;
+                moTa = document.getElementById("moTa").value = infID.moTa;
+            });
+        }
+        window.addEventListener("load", displayInforID);
+        // localStorage.removeItem("id-cap-nhat-phong-tro");
+    </script>
+    <script src="../javascript/main.js">
+        // window.location.reload();
+    </script>
+</body>
+
+</html>

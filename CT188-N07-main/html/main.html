@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Logo góc trên web -->
+    <link rel="shortcut icon" href="../image/for-rent.png">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/default.css.map">
+
+    <!-- Header & Footer mặc định -->
+    <link rel="stylesheet" href="../css/headerFooter.css">
+
+    <!-- CSS trạng thái đăng nhập -->
+    <link rel="stylesheet" href="../css/dislayLogin.css">
+    
+    <!-- Check trạng thái đăng nhập -->
+    <script src="../javascript/displayLogin.js"></script>
+
+    <!--CSS của Cường -->
+    <link rel="stylesheet" href="../css/searchBar.css">
+
+    <!-- CSS riêng của trang chủ -->
+    <link rel="stylesheet" href="../css/trungdan.css">
+    <title>Trang Chủ</title>
+
+
+    <style>
+        .heart{
+            position: fixed;
+            background-image: url('../image/heart1.png');
+            width: 10em;
+            height: 10em;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: moveUp 2s linear forwards;
+            opacity: 0.8;
+            z-index: 0;
+        }
+        @keyframes moveUp{
+            to{
+                transform:translateY(-1000px)
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Nhà Trọ Giá Rẻ<div class="logo"></div>
+        </h1>
+        <div class="auth-cuong">
+            <div class="user-section">
+                <img src="../image/avata-user.png" alt="Avatar" class="avatar-cuong" id="userAvatar" onclick="window.location.href='customer.html'">
+                <div class="inOut">
+                    <button id="loginBtn" class="button-cuong" onclick="login()">Đăng nhập</button>
+                    <button id="logoutBtn" class="button-cuong" onclick="logout()" style="display: none;">Đăng xuất</button>
+                    <button id="DangTin" class="button-cuong" onclick="Dangtin()">Đăng tin</button>
+                </div>
+            </div>
+        </div>
+        <script src="../javascript/dislayAVT.js"></script>
+        <div class="headerCol1"></div>
+        <div class="headerCol2"></div>
+        <div class="headerRow1"></div>
+    </header>
+
+    <!-- Thanh Điều Hướng -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand nav-a" href="#">Nhà Trọ Giá Rẻ</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active nav-a" aria-current="page" href="main.html?#">Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-a" href="news.html">Tin Tức</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-a" href="discount.html" tabindex="-1" aria-disabled="true">Ưu Đãi</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <div class="search-bar">
+                        <input type="text" id="searchInput" placeholder="Nhập từ khóa tìm kiếm..." onkeydown="handleKeyPress(event)">
+                        <button onclick="search(event)" id="searching">Tìm kiếm</button>
+                    </div>
+                    <!-- <input class="form-control me-2" type="text" aria-label="Search" id="searchInput" placeholder="Nhập từ khóa tìm kiếm..." onkeydown="handleKeyPress(event)">
+                    <button class="btn btn-outline-success" onclick="search()">Search</button> -->
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main -->
+    <main class="trangchu">
+        <div class="content">
+
+            <div id="danhSachTro" class="rentBox">
+                <!-- Các phòng trọ sẽ xuất hiện ở đây -->
+            </div>
+
+        </div>
+    
+
+    <!-- Filter Box -->
+        <div class="filter">
+            <div class="container">
+                <!-- Checkbox lọc dữ liệu -->
+                <div class="filter-box">
+                    <h3>Giá Thuê</h3>
+                    <label><input type="radio" name="price" id="price1" value="Dưới 1 triệu/tháng">Dưới 1
+                        triệu/tháng</label>
+                    <br>
+                    <label><input type="radio" name="price" id="price2">1-2 triệu/tháng</label>
+                    <br>
+                    <label><input type="radio" name="price" id="price3">2-3 triệu/tháng</label>
+                    <br>
+                    <label><input type="radio" name="price" id="price4">3-4 triệu/tháng</label>
+                    <br>
+                    <label><input type="radio" name="price" id="price5">4-5 triệu/tháng</label>
+                    <br>
+                    <label><input type="radio" name="price" id="price6">Trên 5 triệu/tháng</label>
+                </div>
+                <div class="filter-box">
+                    <h3>Diện Tích</h3>
+                    <label><input type="radio" name="size" id="area0">Dưới 20m²</label>
+                    <br>
+                    <label><input type="radio" name="size" id="area1">20m² - 30m²</label>
+                    <br>
+                    <label><input type="radio" name="size" id="area2">30m² - 40m²</label>
+                    <br>
+                    <label><input type="radio" name="size" id="area3">40m² - 50m²</label>
+                    <br>
+                    <label><input type="radio" name="size" id="area4">Trên 50m²</label>
+
+                </div>
+                <div class="filter-box">
+                    <h3>Khu Vực</h3>
+                    <label><input type="radio" name="location" id="NinhKieu" value="Quận Ninh Kiều">Quận Ninh
+                        Kiều</label><br>
+                    <label><input type="radio" name="location" id="CaiRang" value="Quận Cái Răng">Quận Cái
+                        Răng</label><br>
+                    <label><input type="radio" name="location" id="BinhThuy" value="Quận Bình Thủy">Bình
+                        Thủy</label><br>
+                    <label><input type="radio" name="location" id="PhongDien" value="Huyện Phong Điền">Phong Điền</label><br>
+                            <label><input type="radio" name="location" id="OMon" value="Quận Ô Môn">Ô Môn</label>
+                </div>
+                <button onclick="clearCheckBox()" type="reset" class="filter-btn">Xóa</button>
+                <button onclick="filterData()" class="filter-btn" id="enterFilter">Lọc Phòng Trọ</button>
+            </div>
+        </div>
+        <div id="pagination"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footerBox">
+            <h3>Liên Kết</h3>
+            <a href="#"><img src="../image/facebook.png">Facebook</a>
+            <a href="#"><img src="../image/zalo.png">Zalo</a>
+        </div>
+        <div class="footerBox">
+            <h3>Chính Sách</h3>
+            <a href="#">Chính Sách Thanh Toán</a>
+            <a href="#">Quyền Riêng Tư</a>
+            <a href="#">Thuế</a>
+        </div>
+        <div class="footerBox">
+            <h3>Địa Chỉ</h3>
+            <span>19/20 Đống Đa, Hà Nội</span>
+            <span>107C1 Quận 1, TPHCM</span>
+        </div>
+    </footer>
+
+    <!-- javaScript/ Cơ Sở dữ liệu/ Cái quan trọng nhất!!!!!-->
+    <script src="../javascript/main.js"></script>
+
+    <!-- Yêu thích -->
+    <script src="../javascript/addfav.js"></script>
+
+    <!-- Thanh chuyển page -->
+    <script>
+        const getParent = document.querySelector('#pagination');
+        console.log(getParent.children)
+    </script>
+
+</body>
+
+</html>

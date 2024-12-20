@@ -1,0 +1,195 @@
+
+body {
+    background: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+}
+main{
+    background-image: url('../image/city.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    display:grid;
+    grid-template-columns: 60% 38%;
+    grid-template-rows: auto;
+    gap:1%;
+    grid-template-areas:
+        'leftSide rightSide'
+    ;
+    padding:10px 0px;
+}
+/* Ảnh trọ */
+#img-detail img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    align-self: center;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+/* Đề mục */
+h2{
+    color: rgb(7, 7, 136);
+    margin-bottom: 0.5em;
+}
+/* Tiêu đề */
+#tieuDe{
+    text-align: center;
+    color: rgb(235, 160, 20);
+}
+/* Mô tả chi tiết */
+#detailed-description{
+    padding-left:25%;
+}
+/* Text còn lại */
+.container p{
+    display: flex;
+    margin-top: 0.5em;
+    align-items: center;
+}
+
+/* Hộp chứa màu trắng */
+.container {
+    width: 100%;
+    height: 100%;
+    border: 1px;
+    padding: 15px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.881);
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    font-weight: bold;
+}
+
+
+.leftSide, .rightSide{
+    border:0.5em solid rgb(0, 0, 65);
+}
+/* Bên trái main */
+.leftSide{
+    grid-area: leftSide;
+    display:flex;
+    flex-direction: column;
+    margin-left:1em; 
+}
+/* Bên phải main */
+.rightSide{
+    grid-area: rightSide;
+    display:flex;
+    flex-direction: column;
+    margin-right:1em;
+    height: fit-content;
+}
+
+
+
+#gia, #dienTich, #viTri{
+    display: flex;
+    align-items: center;
+}
+
+.iconIlustrate{
+    border: none;
+    width: 2em;
+    height: 2em;
+    margin: 1em 1em;
+    background-size: contain;
+    display: flex;
+    align-self: center;
+ }
+
+ #trangThai, #tienCoc, #dienTich, #coGac{
+    margin: 0px;
+ }
+ #statusBox{
+    margin-top:1em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:7em;
+ }
+
+ #leftBox, #rightBox{
+    display: flex;
+    flex-direction: column;
+    padding:0px;
+    gap:2em;
+ }
+/* Contact Btn */
+
+#contactBtn{
+    width: fit-content;
+    height: fit-content;
+    align-self: flex-start;
+    border:1px solid rgb(0, 0, 0);
+    border-radius: 4em;
+    padding:10px;
+    background-color: rgb(173, 43, 6);
+    text-transform: uppercase;
+    font-size:1em;
+    font-weight: bold;
+    color:white;
+}
+
+#contactBtn:hover{
+    transform: scale(1.4);
+}
+
+ /* Contact Box */
+#contactBox{
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#contactBtn:hover #contactBox{
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+    display: flex;
+}
+#contactBtn:hover{
+    overflow: hidden;
+}
+.phoneNumber{
+    width: 100%;
+    height: 100%;
+    color:red;
+    background-color: rgb(249, 244, 145);
+    border:1px solid rgb(0, 44, 82);
+    border-radius: 2em;
+    font-size:0.8em;
+    display: flex;
+    align-items: center;
+
+    /* display:block; */
+    /* align-items: center; */
+}
+
+/* #iconContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.contactIcon{
+    width: fit-content;
+    height: fit-content;
+}
+
+#facebook-icon, #zalo-icon{
+    width: 3em;
+    border: none;
+} */
+
+
+#rent{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* Tạo icon yêu thích */

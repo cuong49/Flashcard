@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Logo góc trên web -->
+    <link rel="shortcut icon" href="../image/for-rent.png">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/default.css.map">
+
+    <!-- Header & Footer mặc định -->
+    <link rel="stylesheet" href="../css/headerFooter.css">
+
+    <!-- CSS trạng thái đăng nhập -->
+    <link rel="stylesheet" href="../css/dislayLogin.css">
+
+    <!-- Trang chi tiết -->
+    <link rel="stylesheet" href="../css/chitiet.css">
+
+
+    <title>Trang chi tiết</title>
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Nhà Trọ Giá Rẻ<div class="logo"></div>
+        </h1>
+        <div class="auth-cuong">
+            <div class="user-section">
+                <img src="../image/avata-user.png" alt="Avatar" class="avatar-cuong" id="userAvatar" onclick="window.location.href='customer.html'">
+                <div class="inOut">
+                    <button id="loginBtn" class="button-cuong" onclick="login()">Đăng nhập</button>
+                    <button id="logoutBtn" class="button-cuong" onclick="logout()" style="display: none;">Đăng xuất</button>
+                    <button id="DangTin" class="button-cuong" onclick="Dangtin()">Đăng tin</button>
+                </div>
+            </div>
+        </div>
+        <script src="../javascript/dislayAVT.js"></script>
+        <div class="headerCol1"></div>
+        <div class="headerCol2"></div>
+        <div class="headerRow1"></div>
+    </header>
+
+
+    <!-- Thanh Điều Hướng -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand nav-a" href="#">Nhà Trọ Giá Rẻ</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active nav-a" aria-current="page" href="main.html?#">Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-a" href="news.html">Tin Tức</a>
+                    </li>
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link nav-a" href="discount.html" tabindex="-1" aria-disabled="true">Ưu Đãi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="leftSide">
+            <div class="container" id="img-detail">
+            </div>
+            <div class="container" id="detailed-description">
+                <h2>Mô tả chi tiết</h2>
+            </div> 
+        </div>
+        <div class="rightSide">
+            <div class="container" id="basic-information-detail">
+                <h2>Thông tin cơ bản</h2>
+            </div>
+            <div class="container" id="real-estate-information-detail">
+                <h2>Đặc điểm phòng</h2>
+            </div> 
+            <div class="container" id="rent">
+                <button id="contactBtn">Liên Hệ Ngay
+                    <div id="contactBox">
+                    </div>
+                </button>
+                
+            </div>
+        </div>
+
+    </main>
+    <img src="" alt="">
+
+    <!-- Footer -->
+    <footer>
+        <div class="footerBox">
+            <h3>Liên Kết</h3>
+            <a href="#"><img src="../image/facebook.png">Facebook</a>
+            <a href="#"><img src="../image/zalo.png">Zalo</a>
+        </div>
+        <div class="footerBox">
+            <h3>Chính Sách</h3>
+            <a href="#">Chính Sách Thanh Toán</a>
+            <a href="#">Quyền Riêng Tư</a>
+            <a href="#">Thuế</a>
+        </div>
+        <div class="footerBox">
+            <h3>Địa Chỉ</h3>
+            <span>19/20 Đống Đa, Hà Nội</span>
+            <span>107C1 Quận 1, TPHCM</span>
+        </div>
+    </footer>
+
+    <!-- Cơ sở dữ liệu quan trọng -->
+    <script>
+    let data = JSON.parse(localStorage.getItem("ChiTietPhongTro"));
+    
+
+
+    
+    function createDetail(hinhAnh, tieuDe, gia, viTri, trangThai, tienCoc, dienTich, coGac, moTa, cachTrungTam, giaDien, giaNuoc,chuTro, lienHe){
+        var img = document.getElementById("img-detail");
+        var basic = document.getElementById("basic-information-detail");
+        var realEstate = document.getElementById("real-estate-information-detail");
+        var detail = document.getElementById("detailed-description");
+        var fragment = document.createDocumentFragment();
+        
+        const createImg = document.createElement("img");
+        createImg.src = hinhAnh;
+        createImg.alt = 'Hình phòng trọ';
+        createImg.id = 'image-id';
+        img.appendChild(createImg);
+
+        const createTieuDe = document.createElement('h4');
+        createTieuDe.id = 'tieuDe';
+        createTieuDe.textContent = tieuDe;
+        fragment.appendChild(createTieuDe);
+
+        const createGia = document.createElement("div");
+        createGia.id = 'gia';
+        createGia.innerHTML = `<img src="../image/price.png" alt="" class="iconIlustrate"> ${gia}`;
+        fragment.appendChild(createGia);
+
+        const createdienTich = document.createElement("p");
+        createdienTich.id="dienTich";
+        createdienTich.innerHTML =`<img src="../image/area.png" alt="" class="iconIlustrate" ${dienTich}`;
+        fragment.appendChild(createdienTich);
+        // Icon
+
+        const createViTri = document.createElement("p");
+        createViTri.id = 'viTri';
+        createViTri.innerHTML = `<img src="../image/location.png" alt="" class="iconIlustrate"> ${viTri}`;
+        fragment.appendChild(createViTri);
+
+        basic.appendChild(fragment);
+        var fragment = document.createDocumentFragment();
+        const statusBox=document.createElement('div');
+        statusBox.id='statusBox';
+        const leftBox=document.createElement('div');
+        leftBox.id='leftBox';
+        const rightBox=document.createElement('div');
+        rightBox.id='rightBox';
+
+        // Tạo hiệu ứng màu trạng thái
+        const createTrangThai = document.createElement("p");
+        createTrangThai.id = 'trangThai';
+
+        const trangThaiThucTe =document.createElement('span');
+        trangThaiThucTe.innerText=trangThai;
+
+        // Nếu trống thì hiển thị xanh
+        if(trangThai.toLowerCase().includes("trống"))
+            trangThaiThucTe.style.color="green";
+
+        // Ngược lại thì đỏ
+        else
+            trangThaiThucTe.style.color="red";
+        createTrangThai.innerHTML = "Trạng thái:&nbsp";
+        createTrangThai.appendChild(trangThaiThucTe);
+        leftBox.appendChild(createTrangThai);
+
+        const createTienCoc = document.createElement("p");
+        createTienCoc.id = 'tienCoc';
+        createTienCoc.innerHTML = "Đặt cọc: " + tienCoc;
+        // fragment.appendChild(createTienCoc);
+        rightBox.appendChild(createTienCoc);
+
+        const createDienTich = document.createElement("p");
+        createDienTich.id = 'dienTich';
+        createDienTich.innerHTML = "Diện tích: "+dienTich;
+        // fragment.appendChild(createDienTich);
+        rightBox.appendChild(createDienTich);
+
+        const createCoGac = document.createElement("p");
+        createCoGac.id = 'coGac';
+        createCoGac.innerHTML = "Gác: " +coGac;
+        // fragment.appendChild(createCoGac);
+        leftBox.appendChild(createCoGac);
+
+
+        statusBox.appendChild(leftBox);
+        statusBox.appendChild(rightBox);
+        fragment.appendChild(statusBox);
+
+        realEstate.appendChild(fragment);
+        detail.innerHTML += `${moTa}`;
+        detail.innerHTML += `<p> Cách trung tâm thành phố Cần Thơ: ${cachTrungTam}</p>`;
+        detail.innerHTML += `<p> <img src="../image/electric.png" class="iconIlustrate"> Giá điện: ${giaDien}</p>`;
+        detail.innerHTML += `<p> <img src="../image/water.png" class="iconIlustrate">Giá nước: ${giaNuoc}</p>`;
+        detail.innerHTML += `<p> <img src="../image/owner.png" class="iconIlustrate">Chủ trọ: ${chuTro}</p>`;
+        // detail.innerHTML += `<p>Liên hệ: ${lienHe}</p>`;  
+        
+        
+
+        // Tạo hộp liên hệ ăn ké hihi
+        const contactBox=document.querySelector('#contactBox');
+
+        // Số điện thoại
+        const contactNumber=document.createElement('span');
+        contactNumber.classList.add('phoneNumber');
+        contactNumber.innerHTML="Số điện thoại: "+lienHe;
+
+
+        contactBox.appendChild(contactNumber);
+        
+
+    }
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].id===localStorage.getItem('chi-tiet')) createDetail(data[i].hinhAnh, data[i].tieuDe,
+                data[i].gia, data[i].vitri,
+                data[i].trangThai, data[i].giaDacCoc,
+                data[i].dienTich, data[i].coGac,
+                data[i].moTa, data[i].cachTrungTam,
+                data[i].giaDien, data[i].giaNuoc,
+                data[i].chuTro, data[i].lienHe);
+        }
+        localStorage.removeItem('chi-tiet');
+
+
+
+
+
+    </script>
+
+    <!-- Set trạng thái đăng nhập -->
+    <script src="../javascript/displayLogin.js"></script>
+</body>
+
+</html>

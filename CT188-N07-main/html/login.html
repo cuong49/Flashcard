@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập/ Đăng ký</title>
+
+    <!-- Logo góc trên web -->
+    <link rel="shortcut icon" href="../image/for-rent.png">
+    
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<style>
+    #wrongPassword{
+        color: red;
+        font-size: 12px;
+    }
+</style>
+<body onload="initializePage()">
+    <div id="backgroundImage"></div>
+    <h2>Đăng nhập/Đăng ký</h2>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Tạo tài khoản</h1>
+                <div class="social-container">
+                    <a href="sorry.html" class="social"><div class="facebook"></div></a>
+                    <a href="sorry.html" class="social"><div class="google"></div></a>
+                    <a href="sorry.html" class="social"><div class="linkedin"></div></a>
+                </div>
+                <span>hoặc sử dụng email của bạn</span>
+                <input type="text" placeholder="Name" />
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Password" minlength="8"/>
+                <button>Đăng ký</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Đăng nhập</h1>
+                <div class="social-container">
+                    <a href="sorry.html" class="social"><div class="facebook"></div></a>
+                    <a href="sorry.html" class="social"><div class="google"></div></a>
+                    <a href="sorry.html" class="social"><div class="linkedin"></div></a>
+                </div>
+                <span>sử dụng tài khoản của bạn</span>
+                <input type="email" placeholder="Email" required/>
+                <input type="password" placeholder="Password" required minlength="8"/>
+                <div id="wrongPassword"></div>
+                <a href="#">Bạn quên mật khẩu?</a>
+                <button>Đăng nhập</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Bạn đã có tài khoản!</h1>
+                    <p>Hãy đăng nhập để kết nối với chúng tôi</p>
+                    <button class="ghost" id="signIn">Đăng nhập tài khoản</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Xin chào!</h1>
+                    <p>Bạn chưa có tài khoản hãy đăng ký với chúng tôi</p>
+                    <button class="ghost" id="signUp">Đăng ký tài khoản</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+        container.classList.add('right-panel-active');
+    });
+
+    signInButton.addEventListener('click', () => {
+        container.classList.remove('right-panel-active');
+    });
+
+
+    // if (localStorage.getItem("page-login")) {
+    //     // Nếu page-login là true, hiển thị phần đăng nhập
+    //     signInButton.classList.add('right-panel-active');
+    //     localStorage.removeItem("page-login")
+    // }
+
+    signUpButton.addEventListener('click', () => {
+        container.classList.add('right-panel-active overlay');
+    });
+
+    signInButton.addEventListener('click', () => {
+        container.classList.remove('right-panel-active');
+    });
+
+// Đăng ký----------------------------------------------------------------------------
+
+    document.querySelector('.sign-up-container form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Ngăn chặn form submit để không reload trang
+
+    const name = document.querySelector('.sign-up-container input[placeholder="Name"]').value;
+    const email = document.querySelector('.sign-up-container input[placeholder="Email"]').value;
+    const password = document.querySelector('.sign-up-container input[placeholder="Password"]').value;
+    if (email.length===0 || name.length===0 || password.length==0) {
+        // alert("Không hợp lệ!");
+        return false;
+    }
+    // Lưu các giá trị vào localStorage
+    if (localStorage.getItem(email)===null && localStorage.getItem(name)===null){
+        localStorage.setItem(email, JSON.stringify({ name, password}));
+        // alert(localStorage.getItem(email));
+        // localStorage.setItem(name, JSON.stringify({ email, password}));
+        localStorage.setItem("user-information",email+password);
+        // alert(localStorage.getItem("user-information"))
+        window.location.href = 'dienthongtin.html';
+        alert('Đăng ký thành công! Thông tin của bạn đã được lưu.');
+    } else alert("Email hoặc name của bạn đã tồn tại");    
+});
+
+
+// Đăng nhập-----------------------------------------------------------------------------
+
+document.querySelector('.sign-in-container form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Ngăn chặn form submit để không reload trang
+
+    // Lấy giá trị từ các trường input
+    const name = document.querySelector('.sign-up-container input[placeholder="Name"]').value;
+    const email = document.querySelector('.sign-in-container input[placeholder="Email"]').value;
+    const password = document.querySelector('.sign-in-container input[placeholder="Password"]').value;
+
+
+    // localStorage.setItem('email',"@gmail.com")
+
+    // const btn=document.querySelector('#button')
+    // btn.value='@.com';
+    // const email = btn.value;
+
+    // const getEmail=localStorage.getItem('email');
+
+
+    if (email.length===0 || password.length===0){
+        return false;
+    }
+        if (localStorage.getItem(email)===null) {
+            // alert('Email hoặc mật khẩu không đúng!');
+            let wrongPassword = document.getElementById("wrongPassword");
+            wrongPassword.textContent = "Tài khoản chưa được đăng ký!";
+            return false;
+        }
+        const savedInfo = localStorage.getItem(email);
+        const storedPassword = JSON.parse(savedInfo);
+
+    if (password === storedPassword.password) {
+        alert('Đăng nhập thành công!');
+        localStorage.setItem("is-login",true);
+        localStorage.setItem("user-information",email+password);
+        window.location.href = 'customer.html';
+    } else {
+        alert('Email hoặc mật khẩu không đúng!');
+    }
+});
+
+
+// function deleteUser(email, password){
+//     if (JSON.parse(localStorage.getItem(email)).password===password){
+//         localStorage.removeItem(JSON.parse(localStorage.getItem(email)).name);
+//         localStorage.removeItem(email);
+//     } else alert("Nhập sai email hoặc password");
+//     alert("Xóa tài khoản thành công!");
+// }
+// deleteUser("ct188", "ct188");
+//sai mat khau hoặc tên
+</script>
+</html>

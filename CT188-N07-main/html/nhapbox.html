@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Logo góc trên web -->
+  <link rel="shortcut icon" href="../image/for-rent.png">
+    <title>Đăng thông tin trọ</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        background-color: #f4f4f4;
+        background-image: url(../image/city.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 900px;
+        /* Mở rộng kích thước container */
+        padding: 20px;
+        margin-top: 20px;
+        background-color: #ffffff57;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #514a4a;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .form-row {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group label {
+        margin-bottom: 5px;
+        color: #39383aeb;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: none;
+        font-size: 16px;
+        transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+        border-color: #007bff;
+    }
+
+    .full-width {
+        flex: 1;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        background-color: #007bff;
+        border: none;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+        margin-top: 15px;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <h2>Đăng Tin Phòng Trọ</h2>
+        <form id="roomForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="id">ID:</label>
+                    <input type="text" id="id" name="id" required minlength="4" placeholder="ID có ít nhất 4 ký tự">
+                </div>
+                <div class="form-group">
+                    <label for="tieuDe">Tiêu Đề:</label>
+                    <input type="text" id="tieuDe" name="tieuDe" required>
+                </div>
+                <div class="form-group">
+                    <label for="gia">Giá:</label>
+                    <input type="text" id="gia" name="gia" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="dienTich">Diện Tích:</label>
+                    <input type="text" id="dienTich" name="dienTich" required>
+                </div>
+                <div class="form-group">
+                    <label for="vitri">Vị Trí:</label>
+                    <input type="text" id="vitri" name="vitri" required>
+                </div>
+                <div class="form-group">
+                    <label for="hinhAnh">Hình Ảnh:</label>
+                    <input type="text" id="hinhAnh" name="hinhAnh">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="giaDien">Giá Điện:</label>
+                    <input type="text" id="giaDien" name="giaDien">
+                </div>
+                <div class="form-group">
+                    <label for="giaNuoc">Giá Nước:</label>
+                    <input type="text" id="giaNuoc" name="giaNuoc">
+                </div>
+                <div class="form-group">
+                    <label for="cachTrungTam">Cách Trung Tâm:</label>
+                    <input type="text" id="cachTrungTam" name="cachTrungTam">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="coGac">Có Gác:</label>
+                    <input type="text" id="coGac" name="coGac">
+                </div>
+                <div class="form-group">
+                    <label for="trangThai">Trạng Thái:</label>
+                    <input type="text" id="trangThai" name="trangThai">
+                </div>
+                <div class="form-group">
+                    <label for="chuTro">Chủ Trọ:</label>
+                    <input type="text" id="chuTro" name="chuTro">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="lienHe">Liên Hệ:</label>
+                    <input type="text" id="lienHe" name="lienHe">
+                </div>
+                <div class="form-group">
+                    <label for="giaDacCoc">Giá Đặt Cọc:</label>
+                    <input type="text" id="giaDacCoc" name="giaDacCoc">
+                </div>
+                <div class="form-group">
+                    <label for="giaDacCoc">Thông báo:</label>
+                    <input type="text" id="giaDacCoc" name="giaDacCoc">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group full-width">
+                    <label for="moTa">Mô Tả:</label>
+                    <textarea id="moTa" name="moTa" rows="4"></textarea>
+                </div>
+            </div>
+
+            <button type="submit">Lưu Thông Tin</button>
+        </form>
+    </div>
+    <script>
+        const savedInfo = localStorage.getItem("user-information");
+        console.log(localStorage.getItem(savedInfo + "arrayID"));
+        // localStorage.removeItem(savedInfo+"arrayID");
+        // localStorage.removeItem("DSPhongTro");
+        document.getElementById("roomForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const id = document.getElementById("id").value;
+            const tieuDe = document.getElementById("tieuDe").value;
+            const gia = document.getElementById("gia").value;
+            const dienTich = document.getElementById("dienTich").value;
+            const vitri = document.getElementById("vitri").value;
+            const hinhAnh = document.getElementById("hinhAnh").value;
+            const giaDien = document.getElementById("giaDien").value;
+            const giaNuoc = document.getElementById("giaNuoc").value;
+            const cachTrungTam = document.getElementById("cachTrungTam").value;
+            const coGac = document.getElementById("coGac").value;
+            const trangThai = document.getElementById("trangThai").value;
+            const chuTro = document.getElementById("chuTro").value;
+            const lienHe = document.getElementById("lienHe").value;
+            const giaDacCoc = document.getElementById("giaDacCoc").value;
+            const moTa = document.getElementById("moTa").value;
+
+            // Lấy dữ liệu từ localStorage
+            let arr = JSON.parse(localStorage.getItem("DSPhongTro")) || [];
+
+            // Tạo đối tượng chứa dữ liệu
+            const formData = {
+                "id": id,
+                "tieuDe": tieuDe,
+                "gia": gia,
+                "dienTich": dienTich,
+                "vitri": vitri,
+                "hinhAnh": hinhAnh,
+                "giaDien": giaDien,
+                "giaNuoc": giaNuoc,
+                "cachTrungTam": cachTrungTam,
+                "coGac": coGac,
+                "trangThai": trangThai,
+                "chuTro": chuTro,
+                "lienHe": lienHe,
+                "giaDacCoc": giaDacCoc,
+                "moTa": moTa
+            };
+
+            let isTrue = true;
+            const dsFull = JSON.parse(localStorage.getItem("ChiTietPhongTro")) || [];
+            dsFull.forEach(room => {
+                if (formData.id === room.id) {
+                    alert("ID đã tồn tại");
+                    isTrue = false;
+                }
+            });
+            if (isTrue) {
+                arr.push(formData);
+                localStorage.setItem("DSPhongTro", JSON.stringify(arr));
+                // displayRooms();
+                // Xóa nội dung của form
+                // document.getElementById("roomForm").reset();
+                qlPhongTro(formData.id);
+                console.log(arr);
+            }
+        });
+
+        /* function displayRooms() {
+            const listContainer = document.getElementById("listContainer");
+            listContainer.innerHTML = ""; // Xóa nội dung hiện tại
+
+            const arr = JSON.parse(localStorage.getItem("ChiTietPhongTro")) || [];
+            arr.forEach(room => {
+                const roomDiv = document.createElement("div");
+                roomDiv.classList.add("room-item");
+                roomDiv.innerHTML = `
+                    <strong>ID:</strong> ${room.id}<br>
+                    <strong>Tiêu Đề:</strong> ${room.tieuDe}<br>
+                    <strong>Giá:</strong> ${room.gia}<br>
+                    <strong>Diện Tích:</strong> ${room.dienTich}<br>
+                    <strong>Vị Trí:</strong> ${room.vitri}<br>
+                    <strong>Hình Ảnh:</strong> ${room.hinhAnh} <br>
+                    <strong>Giá Điện:</strong> ${room.giaDien}<br>
+                    <strong>Giá Nước:</strong> ${room.giaNuoc}<br>
+                    <strong>Cách Trung Tâm:</strong> ${room.cachTrungTam}<br>
+                    <strong>Có Gác:</strong> ${room.coGac}<br>
+                    <strong>Trạng Thái:</strong> ${room.trangThai}<br>
+                    <strong>Chủ Trọ:</strong> ${room.chuTro}<br>
+                    <strong>Liên Hệ:</strong> ${room.lienHe}<br>
+                    <strong>Giá Đặt Cọc:</strong> ${room.giaDacCoc}<br>
+                    <strong>Mô Tả:</strong> ${room.moTa}
+                `;
+                listContainer.appendChild(roomDiv);
+            });
+        } */
+        function qlPhongTro(ID) {
+            const savedInfo = localStorage.getItem("user-information");
+            let arrID = JSON.parse(localStorage.getItem(savedInfo + "arrayID")) || [];
+            arrID.push(ID);
+            localStorage.setItem(savedInfo + "arrayID", JSON.stringify(arrID));
+            console.log("Danh sách ID phòng trọ của người dùng hiện tại:", arrID);
+            alert("Thành công");
+            window.location.href = "customer.html"
+        }
+        /* displayRooms(); */
+    </script>
+
+    <script src="../javascript/main.js">
+        window.location.reload();
+    </script>
+</body>
+
+</html>

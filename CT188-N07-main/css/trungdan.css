@@ -1,0 +1,246 @@
+/* Dùng chung */
+
+/* main */
+.trangchu{
+    padding-top:1em;
+    display:grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        'content filter'
+        'pagination pagination'
+    ;
+    background-color: rgb(255, 255, 255);
+    background-image: url('../image/city.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/*  bên trái của main */
+.content{
+    grid-area: content;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    opacity: 1;
+}
+.box{
+    width: 55em;
+    margin-top: 10px;
+    display:flex;
+    padding:10px;
+    height: fit-content;
+    background-color: rgb(249, 249, 249);
+    border:1px solid white;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.box:nth-child(1){
+    margin-top:0em;
+}
+.box h4 {
+    font-size: 1.5em;
+    color: #333;
+    /* margin-bottom: 10px; */
+}
+.box p{
+    font-size: 1em;
+    color: #555;
+    /* margin-bottom: 5px; */
+}
+.inforDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.sideBox{
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 10%;
+    justify-self: flex-end;
+}
+
+.ownerName{
+    width: 12em;
+    margin: 0px;
+    padding: 0px;
+}
+.ownerPhoto{
+    width: 2em;
+    height: 2em;
+    margin:0px 10px;
+    opacity: 0.3;
+}
+.favorite{
+    display:inline-block;
+    position: relative;
+    right:-12em;
+    width: 2em;
+    height: 2em;
+    margin:10px;
+}
+
+.favorite:hover{
+    transform: scale(1.2);
+}
+.sideBox p{
+    margin:0px 2.5em;
+    font-size:1em;
+}
+.box >img{
+    width: 30%;
+    margin:0.2em 1em;
+    height: 14em;
+    border:1px solid white;
+    border-radius: 1em;
+}
+.box:hover{
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+#position{
+    color:rgba(102, 101, 100, 0.316)
+}
+
+/* bên phải của main */
+.filter{
+    grid-area: filter;
+    width: 100%;
+    position: relative;
+}
+
+/* Này mới là cái hộp lọc real :_)*/
+.container{
+    width: 100%;
+    height: fit-content;
+    background-color: rgba(190, 190, 245, 0.288);
+    border:5px solid rgb(24, 2, 59);
+    border-radius: 1em 0em 0em 1em;
+    border-right:none;
+
+    padding:0.5em;
+    position: sticky;
+    top:0.5em;
+    margin-bottom: 0.2em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color:white;
+}
+/* Container của mỗi bộ lọc theo loại */
+.filter-box{
+    width: fit-content;
+    height: fit-content;
+    margin:0.1em;
+    position:relative;
+} 
+/* Tiêu đề cho loại lọc */
+.filter-box h3{
+    /* -webkit-text-stroke: 0.5px rgb(253, 251, 251); */
+    font-size:1.8em;
+    margin-bottom: 0.2em;
+    color:rgb(2, 37, 57);
+}
+.filter input{
+    margin-right: 0.5em;
+}
+.filter-box label{
+    -webkit-text-stroke: 0.1px rgba(2, 2, 2, 0.888);
+    font-size:1.2em;
+    margin-left:0.25;
+    font-weight: bold;
+    color:rgba(250, 250, 251, 0.986)
+}
+.filter-btn{
+    color:rgb(0, 0, 0);
+    width: 8em;
+    align-self: center;
+    margin:0.3em 0em;
+    padding: 0.2em;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.2em;
+}
+.filter-btn:hover{
+    color:rgb(1, 1, 1);
+    background-color: white;
+    transition: 0.5s;
+    scale:1.05;
+}
+
+
+/* Phân trang */
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:1em 1em;
+    gap: 8px;
+}
+
+#pagination button {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+#pagination button:hover {
+    background-color: #a6c4e4;
+    transform: scale(1.1);
+}
+
+#pagination button.active {
+    background-color: #ffffff;
+    color:black;
+    font-weight: bold;
+}
+
+
+@media (max-width:1200px){
+    *{
+        font-size:10px;
+    }
+    .box:nth-child(1){
+        margin-top: 10px;
+    }
+    .box{
+        flex-direction: column;
+        width: 20em;
+        height: 25em;
+        padding: 5px 5px 5px 5px;
+        margin:10px;
+    }
+    .rentBox{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .real-estate-a{
+        flex-direction: column;
+    }
+    .container{
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        grid-area: 
+            'left'
+            'right'
+        ;
+    }
+    .favorite{
+        right:2em;
+    }
+    .box >img{
+        width: 100%;
+        height: 35%;
+        margin: 0px;
+    }
+}
+
